@@ -1,0 +1,22 @@
+{
+  "name": "express",
+  "version": "1.0.0",
+  "description": "expresDDApp",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mikonos211/D-D-Helper.git"
+  },
+  "author": "Mikolaj Kowaslki",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mikonos211/D-D-Helper/issues"
+  },
+  "homepage": "https://github.com/Mikonos211/D-D-Helper#readme",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}

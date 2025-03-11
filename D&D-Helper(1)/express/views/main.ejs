@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Menu</title>
+    <link rel="stylesheet" href="/interface.css">
+
+    <style>
+ 
+    </style>
+</head>
+<body>
+   
+        
+    <section>
+        <div class="main-box">
+            <form action="/search" method="get">
+                <p class="naglowek">
+                    Wyszukiwarka umiejetnosci
+                </p>
+                <div class="search-box">
+                    <input class="search" type="text" placeholder="Wyszukaj po nazwie (nie działa)">
+                    
+                </div>
+        
+                <div class="opions-button">
+                    <div class="cost-ability">
+                        <p>Koszt Pd</p>
+                        <input class="cost" name="koszt" type="number" max="5" min="0" value="<%= koszt %>">
+                    </div>
+        
+                    <div class="first-check">
+                        <p>Wymagania</p>
+                        <input type="checkbox" name="wymagania">
+                    </div>
+        
+                    <div class="second-chech">
+                        <p>Typ gry</p>
+                        <select class="selection">
+                            <option >Ofensywny</option>
+                            <option >Defensywny</option>
+                            <option >Mag</option>
+                            <option >Wspierajacy</option>
+                            <option >Ogolny</option>
+                            <option >Nie_wiem</option>
+                        </select>
+                    </div>
+        
+                    
+                </div>
+                <div class="Search-button-container">
+                    <button class="Search-button">Wyszukaj</button>
+                </div>
+            </form> 
+        </div>
+    
+        <div class="finded-Zdolnosci">
+            <ul>
+                
+                <div class="zdonlosc-each">
+                    <% zdolnosc.forEach(zdolnosc => { %>
+                        <li>
+                            <p class="nazwa-zdolnosci"><%= zdolnosc.nazwa %>  </p>
+    
+                            <div class="main-info-zdol">
+                                <p style="margin-left: 5px; margin-right: 5px;"><Strong> Wymagania: </Strong> <%= zdolnosc.wymagania %> </p>
+                                <%if (zdolnosc.wymagania == null){ %>
+                                    <p style="margin-left: 5px; margin-right: 5px;">Brak</p>
+                                <% } %>
+                                <p> <Strong> Koszt: </Strong> <%= zdolnosc.koszt %></p> 
+                            </div>
+                            <p class="opis-zdol"><%= zdolnosc.opis %></p> 
+                        </li>
+                    <% }) %>
+                </div>
+                
+            </ul>
+        </div>
+    </section>
+
+ 
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            
+            document.querySelector("#search-form").addEventListener("submit", function(event) {
+            event.preventDefault(); // Zapobiega przeładowaniu strony
+
+            const koszt = document.querySelector(".cost").value;
+            const wymagania = document.querySelector("input[name='wymagania']").checked ? 1 : 0;
+        
+            fetch(`/search?koszt=${koszt}&wymagania=${wymagania}`)
+            .then(response => response.text())
+            .then(html => {
+                document.querySelector(".finded-Zdolnosci").innerHTML = html;
+            })
+            .catch(error => console.error("Błąd podczas pobierania danych:", error));
+            });
+
+            const punktyCechInput = document.getElementById("punkty-cech");
+            const atrybutInputs = document.querySelectorAll(".atrybut");
+            
+            function obliczKoszt(wartosc) {
+                switch (wartosc) {
+                    case -2: return -2;
+                    case -1: return -1;
+                    case 1: return 2;
+                    case 2: return 4;
+                    default: return 0;
+                }
+            }
+            
+            atrybutInputs.forEach(input => {
+                let poprzedniaWartosc = parseInt(input.value);
+                
+                input.addEventListener("input", function() {
+                    let nowaWartosc = parseInt(this.value) || 0;
+                    
+                    let kosztPoprzedni = obliczKoszt(poprzedniaWartosc);
+                    let kosztNowy = obliczKoszt(nowaWartosc);
+                    
+                    let aktualnePunkty = parseInt(punktyCechInput.value);
+                    let nowePunkty = aktualnePunkty + kosztPoprzedni - kosztNowy;
+                    
+                    if (nowePunkty >= 0) {
+                        punktyCechInput.value = nowePunkty;
+                        poprzedniaWartosc = nowaWartosc;
+                    } else {
+                        this.value = poprzedniaWartosc;
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

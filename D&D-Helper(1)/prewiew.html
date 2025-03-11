@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Menu</title>
+    <style>
+         .cechy{
+            display: flex;
+            flex-direction: column;
+            width: 30%;
+            border-radius: 5px;
+            border-style: solid;
+            border-width: 1px;
+            padding: 10px;
+         }
+
+     
+        .atrybuty{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            column-gap: 10px;
+        }
+        .nie-pomyslu{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="cechy">
+        <div class="nie-pomyslu">
+            <p>Wprowadź początkowe punkty cech</p>
+            <input type="number" id="punkty-cech" value="5" readonly style="text-align: center;">
+        </div>
+        <div class="atrybuty">
+            <p>FORMA</p>
+            <input type="number" min="-2" max="2" class="atrybut" value="0">
+        </div>
+        <div class="atrybuty">
+            <p>ZWINNOSC</p>
+            <input type="number" min="-2" max="2" class="atrybut" value="0">
+        </div>
+        <div class="atrybuty">
+            <p>SPRYT</p>
+            <input type="number" min="-2" max="2" class="atrybut" value="0">
+        </div>
+        <div class="atrybuty">
+            <p>CHARYZMA</p>
+            <input type="number" min="-2" max="2" class="atrybut" value="0">
+        </div>
+        <div class="atrybuty">
+            <p>MOC</p>
+            <input type="number" min="-2" max="2" class="atrybut" value="0">
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const punktyCechInput = document.getElementById("punkty-cech");
+            const atrybutInputs = document.querySelectorAll(".atrybut");
+            
+            function obliczKoszt(wartosc) {
+                switch (wartosc) {
+                    case -2: return -2;
+                    case -1: return -1;
+                    case 1: return 2;
+                    case 2: return 4;
+                    default: return 0;
+                }
+            }
+            
+            atrybutInputs.forEach(input => {
+                let poprzedniaWartosc = parseInt(input.value);
+                
+                input.addEventListener("input", function() {
+                    let nowaWartosc = parseInt(this.value) || 0;
+                    
+                    let kosztPoprzedni = obliczKoszt(poprzedniaWartosc);
+                    let kosztNowy = obliczKoszt(nowaWartosc);
+                    
+                    let aktualnePunkty = parseInt(punktyCechInput.value);
+                    let nowePunkty = aktualnePunkty + kosztPoprzedni - kosztNowy;
+                    
+                    if (nowePunkty >= 0) {
+                        punktyCechInput.value = nowePunkty;
+                        poprzedniaWartosc = nowaWartosc;
+                    } else {
+                        this.value = poprzedniaWartosc;
+                    }
+                });
+            });
+        });
+    </script>
+</body></html>
