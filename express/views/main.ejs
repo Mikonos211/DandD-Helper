@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Menu</title>
+    <link rel="stylesheet" href="/interface.css">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        .header {
+            position: relative;
+            top: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            margin-bottom: 20px;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+        *{
+            margin: 0;
+            padding: 0;
+        }
+         .cechy{
+            display: flex;
+            flex-direction: column;
+            width: 30%;
+            border-radius: 5px;
+            border-style: solid;
+            border-width: 1px;
+            padding: 10px;
+            margin: 10px;
+            width: 100%;;
+         }
+
+     
+        .atrybuty{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            column-gap: 10px;
+        }
+        .nie-pomyslu{
+            text-align: center;
+        }
+        .Talenty{
+            display: flex;
+            flex-direction: column;
+            border: 1px solid black;
+            width: 100%;
+            margin: 10px;
+            align-items: center;
+            padding: 10px;
+            max-height: 800px;
+
+        }
+        .Top-Talenty-selection{
+            display: flex;
+            height: 50px;
+            font-size: 20px;
+            width: 100%;
+            background-color: gray;
+            align-items: center;
+            justify-content: center;
+        }
+        .Serach-options{
+            width: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            
+        }
+        .Bottom-Talenty-Selection{
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            padding: 10px;
+        }
+        .Bottom-Talenty-Selection-right{
+            width: 100%;
+            max-width: 200px;
+
+        }
+        .Talenty ul {
+            width: 100%; 
+            max-height: 550px; 
+            overflow-y:scroll; 
+            width: 100%;
+            border: 1px solid rgba(255, 255, 255, 0.2); 
+            background: rgba(255, 255, 255, 0.1); 
+        }
+        .main-container{
+            display: flex;
+            justify-content: center;  
+            align-items: flex-start;  
+            gap: 50px;  
+            max-width: 1200px; 
+            width: 100%;
+            margin: auto ; 
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div>
+            Karta postaci
+        </div>
+    </div>
+    <div class="main-container" >
+        <div style="display: flex; flex-direction: column; width: 400px; flex: 1;">
+            <div class="cechy">
+                <div class="nie-pomyslu">
+                    <p>Wprowadź początkowe punkty cech</p>
+                    <input type="number" id="punkty-cech" value="5" readonly style="text-align: center;">
+                </div>
+                <div class="atrybuty">
+                    <p>FORMA</p>
+                    <input type="number" min="-2" max="2" class="atrybut" value="0">
+                </div>
+                <div class="atrybuty">
+                    <p>ZWINNOSC</p>
+                    <input type="number" min="-2" max="2" class="atrybut" value="0">
+                </div>
+                <div class="atrybuty">
+                    <p>SPRYT</p>
+                    <input type="number" min="-2" max="2" class="atrybut" value="0">
+                </div>
+                <div class="atrybuty">
+                    <p>WIEDZA</p>
+                    <input type="number" min="-2" max="2" class="atrybut" value="0">
+                </div>
+                <div class="atrybuty">
+                    <p>CHARYZMA</p>
+                    <input type="number" min="-2" max="2" class="atrybut" value="0">
+                </div>
+                <div class="atrybuty">
+                    <p>MOC</p>
+                    <input type="number" min="-2" max="2" class="atrybut" value="0">
+                </div>
+            </div>
+        
+            <div class="Talenty">
+                <div class="Top-Talenty-selection">
+                    Talenty
+                </div>
+                <div class="Bottom-Talenty-Selection" >
+                    <div style="margin-left: 30px;">
+                        <div class="Serach-options">
+                            <div>
+                                FORMA
+                            </div>
+                            <input id="FORMA-check" class="Serach-chceckbox" type="checkbox" >
+                        </div>
+                        <div class="Serach-options">
+                            <div>
+                                ZWINNOSC
+                            </div>
+                            <input id="ZWINNOSC-check" class="Serach-chceckbox" type="checkbox" >
+                        </div>
+                        <div class="Serach-options">
+                            <div>
+                                SPRYT
+                            </div>
+                            <input id="SPRYT-check" class="Serach-chceckbox" type="checkbox" >
+                        </div>
+                        <div class="Serach-options">
+                            <div>
+                                WIEDZA
+                            </div>
+                            <input id="WIEDZA-check" class="Serach-chceckbox" type="checkbox" >
+                        </div>
+                        <div class="Serach-options">
+                            <div>
+                                CHARYZMA
+                            </div>
+                            <input id="CHARYZMA-check" class="Serach-chceckbox" type="checkbox" >
+                        </div>
+                        <div class="Serach-options">
+                            <div>
+                                MOC
+                            </div>
+                            <input id="MOC-check" class="Serach-chceckbox" type="checkbox" >
+                        </div>
+        
+                    </div>
+                    <div class="Bottom-Talenty-Selection-right" style="display: flex;">
+                            <ul>
+                                <li class="ZWINNOSC">Akrobatyka</li>
+                                <li class="WIEDZA">Alchemia</li>
+                                <li class="FORMA">Atletyka</li>
+                                <li class="WIEDZA">Biologia</li>
+                                <li class="WIEDZA">Fizyka</li>
+                                <li class="WIEDZA">Geologia</li>
+                                <li class="SPRYT WIEDZA">Gotowanie</li>
+                                <li class="WIEDZA">Historia</li>
+                                <li class="SPRYT">Koncentracja</li>
+                                <li class="FORMA">Kondycja</li>
+                                <li class="SPRYT WIEDZA">Matematyka</li>
+                                <li class="WIEDZA">Medycyna</li>
+                                <li class="SPRYT WIEDZA">Nauczanie</li>
+                                <li class="SPRYT WIEDZA">Nawigacja</li>
+                                <li class="FORMA">Odporność</li>
+                                <li class="SPRYT WIEDZA">Opieka nad zwierzętami</li>
+                                <li class="CHARYZMA">Oszustwo</li>
+                                <li class="CHARYZMA">Perswazja</li>
+                                <li class="SPRYT WIEDZA">Psychologia</li>
+                                <li class="ZWINNOSC">Refleks</li>
+                                <li class="SPRYT">Siła woli</li>
+                                <li class="SPRYT">Spostrzegawczość</li>
+                                <li class="SPRYT WIEDZA">Sztuka Przetrwania</li>
+                                <li class="WIEDZA SPRYT">Tropienie</li>
+                                <li class="CHARYZMA WIEDZA">Wiedza o kulturze</li>
+                                <li class="WIEDZA">Wiedza o legendach i baśniach</li>
+                                <li class="WIEDZA MOC">Wiedza o magii</li>
+                                <li class="SPRYT">Wnikliwość</li>
+                                <li class="SPRYT">Wnioskowanie</li>
+                                <li class="CHARYZMA ZWINNOSC">Występy</li>
+                                <li class="ZWINNOSC">Ukrywanie się</li>
+                                <li class="CHARYZMA FORMA">Zastraszanie</li>
+                                <li class="ZWINNOSC">Zwinne dłonie</li>
+                            </ul>     
+                    </div>
+                </div>
+            </div>
+        </div> 
+    
+      
+    
+            <div class="main-box" style="flex: 1;">
+                <form id="search-form">
+                    <p class="naglowek">
+                        Wyszukiwarka umiejętności
+                    </p>
+                    <div class="search-box">
+                        <input class="search" type="text" placeholder="Wyszukaj po nazwie (nie działa)">
+                    </div>
+    
+                    <div class="opions-button" style="display: flex; justify-content: space-between;">
+                        <div class="cost-ability">
+                            <p>Koszt Pd</p>
+                            <input class="cost" name="koszt" type="number" max="5" min="0" value="<%= koszt %>">
+                        </div>
+    
+                        <div class="first-check">
+                            <p>Wymagania</p>
+                            <input type="checkbox" name="wymagania">
+                        </div>
+    
+                        <div class="second-chech">
+                            <p>Typ gry</p>
+                            <select class="selection">
+                                <option>Nie Wybrany</option>
+                                <option>Ofensywny</option>
+                                <option>Defensywny</option>
+                                <option>Mag</option>
+                                <option>Wspierajacy</option>
+                                <option>Ogolny</option>
+                                <option>Nie_wiem</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="Search-button-container">
+                        <button type="button" id="search-button" class="Search-button">Wyszukaj</button>
+                    </div>
+                </form> 
+                <div class="finded-Zdolnosci">
+                    <%- include('partials/zdolnosci', { zdolnosc }) %>
+                </div>
+            </div>
+    
+           
+    
+    </div>
+   
+    <script>
+         document.addEventListener("DOMContentLoaded", function () {
+    const checkboxes = document.querySelectorAll(".Serach-chceckbox"); 
+    const items = document.querySelectorAll(".Bottom-Talenty-Selection-right li");
+
+    function updateVisibleItems() {
+        let selectedCategories = [];
+        
+        for (let i = 0; i < checkboxes.length; i++) {
+            if (checkboxes[i].checked) {
+                let category = checkboxes[i].id.replace("-check", ""); 
+                selectedCategories.push(category); 
+            }
+        }
+
+        for (let i = 0; i < items.length; i++) {
+            let item = items[i];
+            let hasAllClasses = true;
+            
+            for (let j = 0; j < selectedCategories.length; j++) {
+                if (!item.classList.contains(selectedCategories[j])) {
+                    hasAllClasses = false;
+                    break;
+                }
+            }
+
+            if (hasAllClasses || selectedCategories.length === 0) {
+                item.style.display = "list-item";
+            } else {
+                item.style.display = "none";
+            }
+        }
+    }
+
+    for (let i = 0; i < checkboxes.length; i++) {
+        checkboxes[i].addEventListener("change", updateVisibleItems);
+    }
+});
+
+
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("search-button").addEventListener("click", function () {
+                const formData = new FormData(document.getElementById("search-form"));
+                const params = new URLSearchParams(formData).toString();
+
+                fetch(`/search?${params}`, { method: "GET" })
+                    .then(response => response.text())
+                    .then(html => {
+                        const parser = new DOMParser();
+                        const doc = parser.parseFromString(html, "text/html");
+
+                        const newResults = doc.querySelector(".finded-Zdolnosci");
+                        document.querySelector(".finded-Zdolnosci").innerHTML = newResults.innerHTML;
+                    })
+                    .catch(error => console.error("Błąd podczas pobierania danych:", error));
+            });
+        });
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const punktyCechInput = document.getElementById("punkty-cech");
+            const atrybutInputs = document.querySelectorAll(".atrybut");
+            
+            function obliczKoszt(wartosc) {
+                switch (wartosc) {
+                    case -2: return -2;
+                    case -1: return -1;
+                    case 1: return 2;
+                    case 2: return 4;
+                    default: return 0;
+                }
+            }
+            
+            atrybutInputs.forEach(input => {
+                let poprzedniaWartosc = parseInt(input.value);
+                
+                input.addEventListener("input", function() {
+                    let nowaWartosc = parseInt(this.value) || 0;
+                    
+                    let kosztPoprzedni = obliczKoszt(poprzedniaWartosc);
+                    let kosztNowy = obliczKoszt(nowaWartosc);
+                    
+                    let aktualnePunkty = parseInt(punktyCechInput.value);
+                    let nowePunkty = aktualnePunkty + kosztPoprzedni - kosztNowy;
+                    
+                    if (nowePunkty >= 0) {
+                        punktyCechInput.value = nowePunkty;
+                        poprzedniaWartosc = nowaWartosc;
+                    } else {
+                        this.value = poprzedniaWartosc;
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<ul>
+    <div class="zdonlosc-each">
+        <% zdolnosc.forEach(zdolnosc => { %>
+            <li>
+                <p class="nazwa-zdolnosci"><%= zdolnosc.nazwa %>  </p>
+
+                <div class="main-info-zdol">
+                    <p style="margin-left: 5px; margin-right: 5px;"><strong>Wymagania:</strong> <%= zdolnosc.wymagania || 'Brak' %> </p>
+                    <p><strong>Koszt:</strong> <%= zdolnosc.koszt %></p> 
+                </div>
+                <p class="opis-zdol"><%= zdolnosc.opis %></p> 
+            </li>
+        <% }) %>
+    </div>
+</ul>

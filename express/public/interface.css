@@ -1,0 +1,148 @@
+.naglowek{
+    text-align: center;    
+    margin: 3px;
+    margin-bottom: 10px;
+}
+/* body{
+    background-image: url(wooden-floor-background.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+} */
+.main-box {
+    margin: 10px;
+    padding: 10px;
+    border-radius: 3px;
+    border-style: solid;
+    border-width: 1px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.3); /* Półprzezroczyste tło */
+
+    
+
+}
+
+.cost-ability, .first-check, .second-chech, .third-check{
+    display: flex;
+    column-gap: 10px;
+    align-items: center;
+}
+.cost{
+    width: 40px;
+    height: 30px;
+    text-align: center;
+}
+
+.opions-button{
+    display: flex;
+    column-gap: 10px;
+}
+.search-box{
+    display: flex;
+}
+.search{
+    flex: 1;
+    padding: 10px;
+    border-radius: 25px;
+    border-style: solid;
+    border-width: 1px;
+    text-indent: 10px;
+}
+.Search-button-container {
+    display: flex;
+}
+
+.Search-button {
+    flex: 1; 
+    padding: 10px;
+}
+.selection{
+    height: 30px;
+    padding: 1px 2px 1px 2px;
+}
+.finded-Zdolnosci{
+    display: flex;
+}
+
+/* eee te drugie  */
+
+       
+.main-info-zdol{
+    display: flex;
+    
+}
+.opis-zdol{
+    margin: 5px;
+}
+.zdonlosc-each{
+    display: flex;
+    flex-direction: column;
+}
+
+.nazwa-zdolnosci{
+    margin: 0px;
+}
+ul{
+    padding: 0;
+}
+
+li{
+    margin: 10px;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 1px;
+    padding: 10px;
+    list-style-type: none;
+    background: rgba(255, 255, 255, 0.3); 
+
+}
+section{
+    display: flex;
+    flex-direction: column;
+    justify-content: start; 
+    align-items: center; 
+    height: 100vh; 
+    margin: 0; 
+}
+.cechy{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 1px;
+    padding: 10px;
+ }
+
+
+.atrybuty{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: 10px;
+}
+.nie-pomyslu{
+    text-align: center;
+}
+
+.topowo{
+    display: flex;
+    column-gap: 10px;
+}
+.cechy{
+    width: 300px;
+    background: rgba(255, 255, 255, 0.3); /* Półprzezroczyste tło */
+
+}
+.in-progres{
+    flex: 1;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 1px;
+    background: rgba(255, 255, 255, 0.3); /* Półprzezroczyste tło */
+
+}
